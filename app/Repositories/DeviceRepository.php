@@ -16,14 +16,14 @@ class DeviceRepository
         return Device::select('id', 'os')->where('token', $token)->first();
     }
 
-    public function create(string $uid, int $id, string $os, string $lang)
+    public function create(string $uid, int $app_id, string $os, string $lang)
     {
         $device = new Device();
         $device->uid    = $uid;
-        $device->app_id = $id;
+        $device->app_id = $app_id;
         $device->os     = $os;
         $device->lang   = $lang;
-        $device->token  = hash('sha256', $uid . $id);
+        $device->token  = hash('sha256', $uid . $app_id);
         $device->save();
 
         return $device;
