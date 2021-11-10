@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Services\Subscription;
-
 
 use App\Enums\OsEnum;
 use App\Services\Subscription\Apple\CheckApple;
